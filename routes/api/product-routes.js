@@ -44,7 +44,7 @@ router.post("/", (req, res) => {
     product_name: req.body.product_name,
     price: req.body.price,
     stock: req.body.stock,
-    category_id: req.body.category_id
+    category_id: req.body.category_id,
   })
     .then((product) => {
       // if there are product tags, create pairs of product_id's and tag_id's to send to bulkCreate
@@ -104,7 +104,6 @@ router.put("/:id", (req, res) => {
     })
     .then((updatedProductTags) => res.json(updatedProductTags))
     .catch((err) => {
-      // console.log(err);
       res.status(400).json(err);
     });
 });
@@ -113,14 +112,16 @@ router.delete("/:id", async (req, res) => {
   try {
     const product = await Product.destroy({
       where: { id: req.params.id },
-    })
+    });
     if (!product) {
-      res.status(404).json({ message: "Unable to delete, no product found with that id" })
+      res
+        .status(404)
+        .json({ message: "Unable to delete, no product found with that id" });
       return;
     }
     res.status(200).json(product);
   } catch (err) {
-    console.log(err)
+    console.log(err);
     res.status(500).json(err);
   }
 });
