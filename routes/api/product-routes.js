@@ -12,6 +12,7 @@ router.get("/", async (req, res) => {
         },
         {
           model: Tag,
+          through: ProductTag,
         },
       ],
     });
