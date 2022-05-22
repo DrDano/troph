@@ -9,7 +9,7 @@ Get what you want when you want, troph puts you in control.
   ![](https://img.shields.io/badge/express.js-dep-blue?logo=express)
 
   ## Description
-
+  ![troph](./assets/troph.png)
   This application is not deployed so please clone the repo to somewhere on your system.
 
   The app is the backend framework for an e-commerce website, and has routes readily generated through express.js. These routes are available to you within this package as ```Troph-Insomnia-Routes.json``` which you can import into your instance of Insomnia and readily use if you are running the application locally.
